@@ -19,12 +19,12 @@ ODT=1.0    # interval at which write data
 NREPS=96   # how many repeats
 
 
-for ((S=1; S<=NREPS; S++)) ; do
- echo "Repetition $S/$NREPS"
- DFN=out/output-$T-$S.data
- LFN=out/output-$T-$S.log
- time ./bondbreak $X $T $DT $MT $S $DFN $ODT $LFN
-done
+#for ((S=1; S<=NREPS; S++)) ; do
+# echo "Repetition $S/$NREPS"
+# DFN=out/output-$T-$S.data
+# LFN=out/output-$T-$S.log
+# time ./bondbreak $X $T $DT $MT $S $DFN $ODT $LFN
+#done
 
 ## have to figure out DFN and LFN 
 ##parallel --joblog slurm-$SLURM_JOBID.log "./bondbreak $X $T $DT $MT $S $DFN $ODT $LFN"
