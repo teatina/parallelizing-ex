@@ -4,7 +4,7 @@
 #SBATCH --output=sweep_bondbreak_output.txt
 #SBATCH --job-name=parallel-bond
 
-# This is the sweep_bondbreak.sh script
+# This is the sweep_bondbreak_modified.sh script
 
 module load python # bondbreak needs python
 
@@ -17,7 +17,7 @@ DT=0.0003  # timestep
 MT=400.0   # max.time to simulate
 ODT=1.0    # interval at which write data
 NREPS=96   # how many repeats
-
+S=1
 
 #for ((S=1; S<=NREPS; S++)) ; do
 # echo "Repetition $S/$NREPS"
@@ -26,12 +26,12 @@ NREPS=96   # how many repeats
 # time ./bondbreak $X $T $DT $MT $S $DFN $ODT $LFN
 #done
 
-## have to figure out DFN and LFN 
+## have to figure out DFN and LFN
 ##parallel --joblog slurm-$SLURM_JOBID.log "./bondbreak $X $T $DT $MT $S $DFN $ODT $LFN"
 
 ## or this way to include DFN and LFN
 
-parallel --joblog slurm-$SLURM_JOBID.log "./bondbreak $X $T $DT $MT $S out/output-$T-{}.data $ODT out/output-$T-{}.log" ::: {01..NREPS}
+parallel --joblog slurm-$SLURM_JOBID.log ./bondbreak $X $T $DT $MT $S "out/output-$T-{}.data" $ODT "out/output-$T-{}.log" ::: $(seq 1 $NREPS)
 
 # Extract the breakage times from the logs
 awk '/BREAKAGE DETECTED/{print $8}' out/*.log
