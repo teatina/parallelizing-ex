@@ -1,6 +1,6 @@
 /// @file numerical_integration.cpp
 /// @author Tina Eghdam Zamiri
-/// @date Aug 19, 2022
+/// @date Aug 23, 2022
 /// @brief Module for numerical integration.
 
 
@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <time.h>
 #include <iomanip>
+#include <omp.h>
 
 using namespace std;
 
@@ -19,8 +20,11 @@ double func(double x){
 
 
 double riemann_sum(int partition){
+	
 	double x_i, h = 1 / double(partition);
 	double sum = 0;
+	#pragma omp parallel default(sum) shared(x_i, h)
+	#pragma omp for
 	for ( int i = 0 ; i < partition; i++ ){
 		x_i = i*h;
 		sum += func(x_i);
@@ -38,7 +42,7 @@ int main(int argc, char *argv[]){
 	cout << "the riemann sum value is: " << riemann_sum( partition ) << endl;
 	end = clock();
 	time = double(end - start) / double(CLOCKS_PER_SEC);
-	cout << "Time taken to do the calculation serially: " << std::fixed 
+	cout << "Time taken to do the calculation using parallelization: " << std::fixed 
          << time << std::setprecision(5) << endl;
 }
 
