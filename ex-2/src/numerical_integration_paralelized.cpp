@@ -20,18 +20,15 @@ double func(double x){
 
 
 double riemann_sum(int partition){
-	
 	double x_i, h = 1 / double(partition);
-	double sum = 0;
-	#pragma omp parallel default(sum) shared(x_i, h)
-	#pragma omp for
-	for ( int i = 0 ; i < partition; i++ ){
-		x_i = i*h;
-		sum += func(x_i);
-	}
-	return sum / partition;
+        double sum = 0;
+        #pragma omp parallel for default(none) shared(x_i, h, partition) schedule(dynamic) reduction(+:sum)
+        for ( int i = 0 ; i < partition; i++ ){
+                x_i = i*h;
+                sum += func(x_i);
+        }
+        return sum / partition;	
 }
-
 
 int main(int argc, char *argv[]){
 	long partition = strtol( argv[1], NULL, 10 );
