@@ -1,0 +1,70 @@
+number of threads
+1
+1
+
+real	0m11.125s
+user	0m11.116s
+sys	0m0.002s
+number of threads
+2
+2
+
+real	0m5.568s
+user	0m11.126s
+sys	0m0.002s
+number of threads
+4
+4
+
+real	0m2.826s
+user	0m11.213s
+sys	0m0.001s
+number of threads
+8
+8
+
+real	0m1.565s
+user	0m12.472s
+sys	0m0.002s
+number of threads
+16
+16
+
+real	0m0.819s
+user	0m13.001s
+sys	0m0.003s
+number of threads
+1
+1
+
+real	0m0.005s
+user	0m0.001s
+sys	0m0.002s
+number of threads
+2
+2
+
+real	0m0.005s
+user	0m0.003s
+sys	0m0.000s
+number of threads
+4
+4
+
+real	0m0.007s
+user	0m0.003s
+sys	0m0.000s
+number of threads
+8
+8
+
+real	0m0.005s
+user	0m0.002s
+sys	0m0.003s
+number of threads
+16
+16
+
+real	0m0.005s
+user	0m0.002s
+sys	0m0.006s

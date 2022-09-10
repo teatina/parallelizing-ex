@@ -1,0 +1,25 @@
+number of threads
+1
+number of partitions is: 10
+the riemann sum value is: 3.23993
+Took	5.224e-05 sec
+number of threads
+2
+number of partitions is: 20
+the riemann sum value is: 3.19118
+Took	0.0001952 sec
+number of threads
+4
+number of partitions is: 40
+the riemann sum value is: 3.16649
+Took	0.0001789 sec
+number of threads
+8
+number of partitions is: 80
+the riemann sum value is: 3.15407
+Took	0.0002695 sec
+number of threads
+16
+number of partitions is: 160
+the riemann sum value is: 3.14784
+Took	0.0004259 sec
