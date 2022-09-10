@@ -5,3 +5,12 @@ This code implements a left Riemann sum that calculates the value of Pi. It is d
   - output-ws.txt : File that shows Weak Scaling which is using different number of threads and different problem size.
   
   - output-ss.txt : File that shows Strong Scaling which is using different number of threads while keeping the problem size fixed
+
+
+
+To Run (On Teach Cluster):
+
+make build
+
+sbatch openmp_numerical_integration.sh
+
